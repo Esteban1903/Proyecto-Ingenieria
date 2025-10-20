@@ -468,6 +468,140 @@ body {
     color: var(--primary-color);
 }
 
+.header-container {
+    position: relative;
+}
+
+.profile-icon {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 1.8rem;
+}
+
+.profile-icon a {
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+.profile-icon a:hover {
+    color: #ffd700;
+}
+
+
+.login-body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(180deg, #0a1d4e 0%, #1e3a8a 100%);
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  overflow-y: auto;
+}
+
+.login-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 60px 20px;
+  box-sizing: border-box;
+}
+
+.login-card {
+  background: #ffffff;
+  color: #333;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  width: 480px;
+  max-width: 90%;
+  margin-bottom: 60px;
+}
+
+.login-card i {
+  color: #0096c7;
+  margin-right: 0.5rem;
+}
+
+.login-form .form-group {
+  text-align: left;
+  margin-bottom: 1.2rem;
+}
+
+.login-form label {
+  font-weight: 600;
+  color: #142850;
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.login-form .form-input {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  transition: border-color 0.3s;
+}
+
+.login-form .form-input:focus {
+  border-color: #0096c7;
+  outline: none;
+}
+
+.login-btn {
+  width: 100%;
+  margin-top: 1rem;
+  padding: 0.9rem;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.register-text {
+  margin-top: 1.2rem;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.register-link {
+  color: #0096c7;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.register-link:hover {
+  text-decoration: underline;
+}
+
+.divider {
+  border: none;
+  height: 1px;
+  background: #ccc;
+  margin: 1.5rem 0;
+}
+
+.section-subtitle {
+  text-align: left;
+  color: #142850;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.section-subtitle i {
+  color: #0096c7;
+  margin-right: 0.4rem;
+}
+
+
+/* Animación */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
 /* Responsive */
 @media (max-width: 768px) {
     .container {
