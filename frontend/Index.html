@@ -68,15 +68,15 @@
                 
                 <div class="options-container">
                     <div class="option-card" data-type="prestamo">
-                        <h3><i class="fas fa-money-bill-wave"></i> Préstamo Bancario</h3>
+                        <h3><i class="fas fa-university"></i> Préstamo Bancario</h3>
                         <form class="option-form">
                             <div class="form-group">
-                                <label>Monto del préstamo:</label>
-                                <input type="number" class="form-input" placeholder="100000" required>
+                                <label>Monto del préstamo (COP):</label>
+                                <input type="number" class="form-input" placeholder="50000000" required>
                             </div>
                             <div class="form-group">
                                 <label>Tasa de interés anual (%):</label>
-                                <input type="number" class="form-input" step="0.01" placeholder="12.5" required>
+                                <input type="number" class="form-input" step="0.01" placeholder="15.5" required>
                             </div>
                             <div class="form-group">
                                 <label>Plazo (meses):</label>
@@ -84,29 +84,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Comisión de apertura (%):</label>
-                                <input type="number" class="form-input" step="0.01" placeholder="2" value="0">
-                            </div>
-                        </form>
-                    </div>
-
-                    <div class="option-card" data-type="leasing">
-                        <h3><i class="fas fa-car"></i> Leasing</h3>
-                        <form class="option-form">
-                            <div class="form-group">
-                                <label>Valor del bien:</label>
-                                <input type="number" class="form-input" placeholder="50000" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Cuota inicial (%):</label>
-                                <input type="number" class="form-input" step="0.01" placeholder="20" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Tasa de interés anual (%):</label>
-                                <input type="number" class="form-input" step="0.01" placeholder="10.5" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Plazo (meses):</label>
-                                <input type="number" class="form-input" placeholder="48" required>
+                                <input type="number" class="form-input" step="0.01" placeholder="2.5" value="2.5">
                             </div>
                         </form>
                     </div>
@@ -115,16 +93,16 @@
                         <h3><i class="fas fa-handshake"></i> Capital de Riesgo</h3>
                         <form class="option-form">
                             <div class="form-group">
-                                <label>Inversión requerida:</label>
-                                <input type="number" class="form-input" placeholder="200000" required>
+                                <label>Inversión requerida (COP):</label>
+                                <input type="number" class="form-input" placeholder="200000000" required>
                             </div>
                             <div class="form-group">
                                 <label>Porcentaje de participación (%):</label>
                                 <input type="number" class="form-input" step="0.01" placeholder="25" required>
                             </div>
                             <div class="form-group">
-                                <label>Valoración de la empresa:</label>
-                                <input type="number" class="form-input" placeholder="800000" required>
+                                <label>Valoración de la empresa (COP):</label>
+                                <input type="number" class="form-input" placeholder="800000000" required>
                             </div>
                             <div class="form-group">
                                 <label>Tiempo de salida (años):</label>
@@ -137,16 +115,16 @@
                         <h3><i class="fas fa-users"></i> Crowdfunding</h3>
                         <form class="option-form">
                             <div class="form-group">
-                                <label>Meta de financiamiento:</label>
-                                <input type="number" class="form-input" placeholder="50000" required>
+                                <label>Meta de financiamiento (COP):</label>
+                                <input type="number" class="form-input" placeholder="50000000" required>
                             </div>
                             <div class="form-group">
                                 <label>Comisión de plataforma (%):</label>
-                                <input type="number" class="form-input" step="0.01" placeholder="5" required>
+                                <input type="number" class="form-input" step="0.01" placeholder="8" required>
                             </div>
                             <div class="form-group">
-                                <label>Recompensas promedio:</label>
-                                <input type="number" class="form-input" placeholder="100" required>
+                                <label>Recompensas promedio (COP):</label>
+                                <input type="number" class="form-input" placeholder="100000" required>
                             </div>
                             <div class="form-group">
                                 <label>Tiempo de campaña (días):</label>
@@ -169,11 +147,59 @@
 
         <section id="resultados" class="section">
             <div class="container">
-                <h2>Resultados de Comparación</h2>
+                <h2>Recomendación de Financiamiento</h2>
                 
                 <div class="results-container">
+                    <div class="best-option-card">
+                        <div class="best-option-header">
+                            <h3 id="bestOptionTitle">Mejor Opción</h3>
+                            <div class="risk-badge" id="riskBadge">
+                                <span class="risk-level" id="riskLevel">-</span>
+                            </div>
+                        </div>
+                        
+                        <div class="option-details">
+                            <div class="financial-summary">
+                                <div class="summary-item">
+                                    <span class="label">Costo Total:</span>
+                                    <span class="value" id="totalCost">-</span>
+                                </div>
+                                <div class="summary-item">
+                                    <span class="label">Pago Mensual:</span>
+                                    <span class="value" id="monthlyPayment">-</span>
+                                </div>
+                                <div class="summary-item">
+                                    <span class="label">Tasa Efectiva:</span>
+                                    <span class="value" id="effectiveRate">-</span>
+                                </div>
+                            </div>
+                            
+                            <div class="pros-cons">
+                                <div class="pros">
+                                    <h4><i class="fas fa-check-circle"></i> Ventajas</h4>
+                                    <ul id="prosList">
+                                        <!-- Se llenará dinámicamente -->
+                                    </ul>
+                                </div>
+                                <div class="cons">
+                                    <h4><i class="fas fa-exclamation-triangle"></i> Desventajas</h4>
+                                    <ul id="consList">
+                                        <!-- Se llenará dinámicamente -->
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="banks-section">
+                        <h3>Bancos y Entidades Recomendadas</h3>
+                        <div class="banks-grid" id="banksGrid">
+                            <!-- Se llenará dinámicamente -->
+                        </div>
+                    </div>
+
                     <div class="comparison-table">
-                        <h3>Tabla Comparativa</h3>
+                        <h3>Comparación Completa</h3>
                         <div class="table-responsive">
                             <table id="comparisonTable">
                                 <thead>
@@ -182,8 +208,8 @@
                                         <th>Costo Total</th>
                                         <th>Pago Mensual</th>
                                         <th>Tasa Efectiva</th>
-                                        <th>ROI Estimado</th>
                                         <th>Riesgo</th>
+                                        <th>Recomendación</th>
                                     </tr>
                                 </thead>
                                 <tbody id="comparisonBody">
@@ -192,70 +218,48 @@
                             </table>
                         </div>
                     </div>
-
-                    <div class="cashflow-charts">
-                        <h3>Flujo de Caja Comparativo</h3>
-                        <div class="chart-container">
-                            <canvas id="cashflowChart"></canvas>
-                        </div>
-                    </div>
-
-                    <div class="alerts-section">
-                        <h3>Alertas y Recomendaciones</h3>
-                        <div id="alertsContainer" class="alerts-container">
-                            <!-- Las alertas se mostrarán aquí -->
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
 
         <section id="indicadores" class="section">
             <div class="container">
-                <h2>Indicadores Financieros</h2>
+                <h2>Análisis Financiero</h2>
                 
                 <div class="indicators-grid">
                     <div class="indicator-card">
-                        <h4>Payback Period</h4>
+                        <h4><i class="fas fa-clock"></i> Tiempo de Recuperación</h4>
                         <div class="indicator-value" id="paybackPeriod">-</div>
-                        <p class="indicator-description">Tiempo para recuperar la inversión</p>
+                        <p class="indicator-description">Meses para recuperar la inversión</p>
                     </div>
                     
                     <div class="indicator-card">
-                        <h4>VAN (Valor Actual Neto)</h4>
-                        <div class="indicator-value" id="van">-</div>
-                        <p class="indicator-description">Valor actual de los flujos de caja futuros</p>
+                        <h4><i class="fas fa-chart-line"></i> Rentabilidad</h4>
+                        <div class="indicator-value" id="roi">-</div>
+                        <p class="indicator-description">Retorno sobre la inversión (%)</p>
                     </div>
                     
                     <div class="indicator-card">
-                        <h4>TIR (Tasa Interna de Retorno)</h4>
-                        <div class="indicator-value" id="tir">-</div>
-                        <p class="indicator-description">Tasa de descuento que iguala VAN a cero</p>
-                    </div>
-                    
-                    <div class="indicator-card">
-                        <h4>Relación Beneficio-Costo</h4>
-                        <div class="indicator-value" id="benefitCostRatio">-</div>
-                        <p class="indicator-description">Beneficios relativos al costo de inversión</p>
+                        <h4><i class="fas fa-balance-scale"></i> Capacidad de Pago</h4>
+                        <div class="indicator-value" id="paymentCapacity">-</div>
+                        <p class="indicator-description">% de ingresos para pagos</p>
                     </div>
                 </div>
 
-                <div class="sensitivity-analysis">
-                    <h3>Análisis de Sensibilidad</h3>
-                    <div class="sensitivity-controls">
-                        <div class="form-group">
-                            <label>Variación de tasa de interés (%):</label>
-                            <input type="range" id="rateSensitivity" min="-5" max="5" step="0.5" value="0">
-                            <span id="rateValue">0%</span>
+                <div class="recommendation-summary">
+                    <h3>Resumen de Recomendación</h3>
+                    <div class="summary-card">
+                        <div class="summary-content">
+                            <p id="recommendationText">Complete los datos para obtener una recomendación personalizada basada en su perfil financiero.</p>
                         </div>
-                        <div class="form-group">
-                            <label>Variación del plazo (meses):</label>
-                            <input type="range" id="termSensitivity" min="-12" max="12" step="1" value="0">
-                            <span id="termValue">0 meses</span>
+                        <div class="action-buttons">
+                            <button id="saveRecommendation" class="btn-primary">
+                                <i class="fas fa-save"></i> Guardar Análisis
+                            </button>
+                            <button id="exportReport" class="btn-secondary">
+                                <i class="fas fa-download"></i> Exportar Reporte
+                            </button>
                         </div>
-                    </div>
-                    <div class="sensitivity-chart">
-                        <canvas id="sensitivityChart"></canvas>
                     </div>
                 </div>
             </div>
@@ -263,26 +267,48 @@
 
         <section id="ayuda" class="section">
             <div class="container">
-                <h2>Ayuda y Documentación</h2>
+                <h2>Guía de Financiamiento en Colombia</h2>
                 
                 <div class="help-content">
                     <div class="help-card">
-                        <h3>Tipos de Financiamiento</h3>
+                        <h3>Tipos de Financiamiento Disponibles</h3>
                         <ul>
-                            <li><strong>Préstamo Bancario:</strong> Financiamiento tradicional con interés fijo</li>
-                            <li><strong>Leasing:</strong> Arrendamiento financiero con opción de compra</li>
-                            <li><strong>Capital de Riesgo:</strong> Inversión a cambio de participación accionaria</li>
-                            <li><strong>Crowdfunding:</strong> Financiamiento colectivo a través de plataformas</li>
+                            <li><strong>Préstamo Bancario:</strong> Financiamiento tradicional con tasas competitivas y plazos flexibles</li>
+                            <li><strong>Capital de Riesgo:</strong> Inversión a cambio de participación accionaria, ideal para startups</li>
+                            <li><strong>Crowdfunding:</strong> Financiamiento colectivo a través de plataformas especializadas</li>
                         </ul>
                     </div>
                     
                     <div class="help-card">
-                        <h3>Indicadores Clave</h3>
+                        <h3>Bancos Principales en Colombia</h3>
+                        <div class="banks-info">
+                            <div class="bank-category">
+                                <h4>Bancos Tradicionales</h4>
+                                <ul>
+                                    <li>Bancolombia - Líder en préstamos empresariales</li>
+                                    <li>BBVA Colombia - Tasas competitivas para emprendedores</li>
+                                    <li>Davivienda - Programas especiales para PYMES</li>
+                                    <li>Scotiabank Colpatria - Financiamiento internacional</li>
+                                </ul>
+                            </div>
+                            <div class="bank-category">
+                                <h4>Entidades Especializadas</h4>
+                                <ul>
+                                    <li>Bancóldex - Financiamiento para emprendimiento</li>
+                                    <li>Findeter - Proyectos de infraestructura</li>
+                                    <li>iNNpulsa - Capital semilla y aceleración</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="help-card">
+                        <h3>Factores de Decisión</h3>
                         <ul>
-                            <li><strong>Costo Total:</strong> Suma de todos los pagos incluyendo intereses</li>
-                            <li><strong>Tasa Efectiva:</strong> Costo real del financiamiento anualizado</li>
-                            <li><strong>ROI:</strong> Retorno esperado sobre la inversión</li>
-                            <li><strong>Riesgo:</strong> Nivel de riesgo asociado a cada opción</li>
+                            <li><strong>Costo Total:</strong> Incluye intereses, comisiones y seguros</li>
+                            <li><strong>Capacidad de Pago:</strong> No más del 30% de ingresos mensuales</li>
+                            <li><strong>Plazo:</strong> Balance entre cuota mensual y costo total</li>
+                            <li><strong>Requisitos:</strong> Historial crediticio, garantías y documentación</li>
                         </ul>
                     </div>
                 </div>

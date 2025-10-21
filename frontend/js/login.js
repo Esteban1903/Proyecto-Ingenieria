@@ -1,4 +1,6 @@
-document.getElementById('form-login').addEventListener('submit', async (e) => {
+const formLogin = document.getElementById('form-login');
+if (formLogin) {
+  formLogin.addEventListener('submit', async (e) => {
   e.preventDefault();
 
   const email = document.getElementById('email').value;
@@ -25,4 +27,5 @@ document.getElementById('form-login').addEventListener('submit', async (e) => {
     console.error('Error al conectar con el servidor:', error);
     alert('No se pudo conectar con el servidor');
   }
-});
+  });
+}

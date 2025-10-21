@@ -1,4 +1,6 @@
-document.getElementById("form-register").addEventListener("submit", async (e) => {
+const formRegister = document.getElementById("form-register");
+if (formRegister) {
+  formRegister.addEventListener("submit", async (e) => {
   e.preventDefault();
 
   const password = document.getElementById("password").value;
@@ -41,4 +43,5 @@ document.getElementById("form-register").addEventListener("submit", async (e) =>
     console.error("Error al conectar con el servidor:", err);
     alert("No se pudo conectar con el servidor");
   }
-});
+  });
+}
