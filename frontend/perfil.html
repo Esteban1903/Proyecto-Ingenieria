@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil del Emprendedor</title>
+    <link rel="stylesheet" href="Style.css">
+    <script src="https://kit.fontawesome.com/a2d9a66b2f.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <h1><i class="fas fa-user-circle"></i> Perfil del Emprendedor</h1>
+            <p>Consulta y gestiona la información de tu empresa</p>
+            <div class="profile-icon">
+                <a href="index.html" title="Volver al inicio"><i class="fas fa-home"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sección principal -->
+    <section class="section container" style="animation: fadeIn 0.5s ease;">
+        <h2>Información personal</h2>
+
+        <div class="profile-card" style="max-width: 700px; margin: 0 auto; background: white; border-radius: 1rem; box-shadow: var(--shadow-lg); padding: 2rem;">
+            <div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 2rem;">
+                <div style="background: var(--primary-color); color: white; font-size: 2.5rem; border-radius: 50%; width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow);">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div>
+                    <h3 style="margin-bottom: 0.3rem; color: var(--dark-color);" id="nombreUsuario">Nombre del Emprendedor</h3>
+                    <p style="color: var(--secondary-color);" id="emailUsuario">correo@empresa.com</p>
+                </div>
+            </div>
+
+            <hr class="divider">
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                <div>
+                    <h4 class="section-subtitle"><i class="fas fa-building"></i> Empresa</h4>
+                    <p><strong>Nombre:</strong> <span id="empresaUsuario">Mi Empresa S.A.S</span></p>
+                    <p><strong>Sector:</strong> <span id="sectorUsuario">Tecnología</span></p>
+                </div>
+                <div>
+                    <h4 class="section-subtitle"><i class="fas fa-calendar-alt"></i> Registro</h4>
+                    <p><strong>ID de usuario:</strong> <span id="idUsuario">#123</span></p>
+                </div>
+            </div>
+
+            <hr class="divider">
+
+            <div>
+                <h4 class="section-subtitle"><i class="fas fa-chart-line"></i> Datos financieros</h4>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+                    <div class="indicator-card">
+                        <h4>Ingresos</h4>
+                        <div class="indicator-value" id="ingresosUsuario">$25,000</div>
+                        <p class="indicator-description">Ingresos mensuales</p>
+                    </div>
+                    <div class="indicator-card">
+                        <h4>Gastos</h4>
+                        <div class="indicator-value" id="gastosUsuario">$10,000</div>
+                        <p class="indicator-description">Gastos mensuales</p>
+                    </div>
+                    <div class="indicator-card">
+                        <h4>Deudas</h4>
+                        <div class="indicator-value" id="deudasUsuario">$5,000</div>
+                        <p class="indicator-description">Total de deudas activas</p>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="divider">
+
+            <div>
+                <h4 class="section-subtitle"><i class="fas fa-bullseye"></i> Objetivo del préstamo</h4>
+                <p id="objetivoUsuario">Expandir operaciones y adquirir nueva maquinaria.</p>
+            </div>
+
+            <div class="controls">
+                <button class="btn-primary"><i class="fas fa-edit"></i> Editar perfil</button>
+                <button class="btn-secondary" id="btnCerrarSesion">
+                    <i class="fas fa-sign-out-alt"></i> Cerrar sesión
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2025 Comparador Financiero | Todos los derechos reservados</p>
+    </footer>
+    <script src="js/perfil.js"></script>
+</body>
+</html>

@@ -41,7 +41,8 @@ router.post("/login", async (req, res) => {
       ingresos: user.rows[0].ingresos,
       gastos: user.rows[0].gastos,
       deudas: user.rows[0].deudas,
-      objetivo: user.rows[0].objetivo
+      objetivo: user.rows[0].objetivo,
+      fecha_registro: user.rows[0].fecha_registro
     }
   });
 });
